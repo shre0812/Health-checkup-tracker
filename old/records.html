@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Health Checkup Records</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Health Records</h1>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Weight (kg)</th>
+                <th>Blood Pressure</th>
+                <th>Notes</th>
+            </tr>
+            {% for record in records %}
+            <tr>
+                <td>{{ record.date }}</td>
+                <td>{{ record.weight }}</td>
+                <td>{{ record.blood_pressure }}</td>
+                <td>{{ record.notes }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ url_for('index') }}">Add Another Record</a>
+    </div>
+</body>
+</html>

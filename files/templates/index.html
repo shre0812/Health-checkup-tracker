@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Health Record</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Add Health Record</h1>
+    <form action="{{ url_for('add_record') }}" method="POST" class="form-box">
+      <label>Date</label>
+      <input type="date" name="date" required>
+
+      <label>Weight (kg)</label>
+      <input type="number" name="weight" step="0.1" required>
+
+      <label>Blood Pressure</label>
+      <input type="text" name="blood_pressure" required>
+
+      <label>Notes</label>
+      <textarea name="notes" placeholder="Optional"></textarea>
+
+      <button type="submit">Save Record</button>
+    </form>
+
+    <a href="{{ url_for('records') }}" class="btn-link">View All Records</a>
+  </div>
+</body>
+</html>

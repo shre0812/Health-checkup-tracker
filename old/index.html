@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Health Checkup Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Health Checkup Tracker</h1>
+        <form action="{{ url_for('add_record') }}" method="post">
+            <label for="date">Date:</label>
+            <input type="date" name="date" required><br>
+
+            <label for="weight">Weight (kg):</label>
+            <input type="number" name="weight" step="0.1" required><br>
+
+            <label for="blood_pressure">Blood Pressure (mmHg):</label>
+            <input type="text" name="blood_pressure" required><br>
+
+            <label for="notes">Notes:</label>
+            <input type="text" name="notes"><br>
+
+            <button type="submit">Add Record</button>
+        </form>
+        <a href="{{ url_for('records') }}">View Records</a>
+    </div>
+</body>
+</html>
