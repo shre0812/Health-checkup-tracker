@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Record Tracker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="landing">
+  <div class="landing-content">
+    <img src="{{ url_for('static', filename='health-landing.jpg') }}" class="hero-img" alt="Health Tracker">
+    <h1>Welcome to <span>Health Record Tracker</span></h1>
+    <p>Monitor your health, stay consistent, and receive timely reminders.</p>
+    <a href="{{ url_for('dashboard') }}" class="btn-primary">Get Started</a>
+  </div>
+</body>
+</html>
