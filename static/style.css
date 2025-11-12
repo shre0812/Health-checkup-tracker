@@ -1,68 +1,110 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-body {
-  margin: 0;
+* {
+  box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #89f7fe, #66a6ff);
-  color: #222;
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  background: linear-gradient(135deg, #66a6ff, #89f7fe);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
 header {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px 15px;
   text-align: center;
-  background: #0077b6;
-  color: white;
-  padding: 20px;
-  font-size: 1.5rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-bottom: 4px solid #0077b6;
 }
 
+header h1 {
+  color: #0077b6;
+  font-size: 2rem;
+}
+
+header .header-sub {
+  color: #555;
+  margin-top: 5px;
+  font-size: 1rem;
+}
+
+/* DASHBOARD LAYOUT */
 .dashboard {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 20px;
-  gap: 20px;
+  align-items: flex-start;
+  padding: 30px 20px;
+  gap: 25px;
+  flex: 1;
 }
 
+/* CARD STYLES */
 .card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
+  background: white;
+  border-radius: 20px;
   padding: 25px;
-  width: 45%;
-  min-width: 350px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  animation: fadeIn 0.6s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 380px;
+  max-width: 600px;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
 }
 
 h2, h3 {
   color: #0077b6;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   border-bottom: 2px solid #0077b6;
   padding-bottom: 5px;
+  font-weight: 600;
 }
 
-form {
-  margin-bottom: 20px;
+/* FORM */
+.form-grid {
+  display: grid;
+  gap: 12px;
+}
+
+label {
+  font-weight: 600;
+  color: #333;
 }
 
 input, textarea, select {
   width: 100%;
   padding: 10px;
-  margin-top: 5px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid #ccc;
+  font-size: 1rem;
+  margin-top: 5px;
+  transition: 0.3s;
 }
 
-button, .btn-delete {
-  display: inline-block;
-  padding: 8px 14px;
-  margin-top: 10px;
-  border-radius: 8px;
+input:focus, textarea:focus, select:focus {
+  border-color: #0077b6;
+  box-shadow: 0 0 5px #66a6ff;
+  outline: none;
+}
+
+/* BUTTONS */
+button, .btn-secondary, .btn-primary {
   border: none;
-  cursor: pointer;
-  transition: 0.3s;
+  padding: 10px 15px;
+  border-radius: 10px;
   font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .btn-primary {
@@ -85,51 +127,107 @@ button, .btn-delete {
   color: white;
 }
 
-.btn-delete {
-  background: #f44336;
-  color: white;
-  text-decoration: none;
-}
-
-.btn-delete:hover {
-  background: #c62828;
-}
-
+/* TABLES */
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.9rem;
+  margin-top: 12px;
+  font-size: 0.95rem;
 }
 
 th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
+  border: 1px solid #e0e0e0;
+  padding: 10px;
   text-align: center;
 }
 
 th {
   background: #0077b6;
   color: white;
+  font-weight: 600;
 }
 
 tr:nth-child(even) {
-  background: #f5f5f5;
+  background: #f8f9fa;
 }
+
+/* FLASH MESSAGES */
+.flash {
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+.flash.success {
+  background: #d4edda;
+  color: #155724;
+  border-left: 5px solid #28a745;
+}
+
+.flash.warning {
+  background: #fff3cd;
+  color: #856404;
+  border-left: 5px solid #ffc107;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.flash.info {
+  background: #d1ecf1;
+  color: #0c5460;
+  border-left: 5px solid #17a2b8;
+}
+
+.flash-img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+/* REMINDER BUTTONS */
+.btn-delete {
+  background: #f44336;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.btn-snooze {
+  background: #ffb300;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.btn-delete:hover { background: #c62828; }
+.btn-snooze:hover { background: #ff9800; }
 
 .empty {
-  text-align: center;
   color: #777;
   font-style: italic;
+  text-align: center;
 }
 
+/* FOOTER */
 footer {
   background: #0077b6;
   color: white;
   text-align: center;
-  padding: 10px;
+  padding: 12px;
+  font-size: 0.9rem;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .dashboard {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 95%;
+  }
 }
